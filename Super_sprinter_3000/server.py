@@ -10,7 +10,7 @@ def route_form():
 
 @app.route('/edit-note')
 def route_form_edit():
-    return render_template('story_id.html')
+    return render_template('list.html')
 
 
 @app.route('/save-note', methods=['POST'])
@@ -21,8 +21,8 @@ def route_save():
 
 
 if __name__ == "__main__":
-    app.secret_key = 'magic'  # Change the content of this string
+    app.secret_key = 'magic'  
     app.run(
-        debug=True,  # Allow verbose error reports
-        port=5000  # Set custom port
+        debug=True,  
+        port=5000  
     )
