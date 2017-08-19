@@ -1,16 +1,28 @@
 from flask import Flask, render_template, redirect, request, session
+import csv
+import sys
+
 
 app = Flask(__name__)
+id_pos = None
+edit = None
+
+
+def stories_reader():
+    with open("stories.csv", "r") as csvfile:
+        reader = csv.reader(csvfile)
+        stories_list = list(reader)
+    return stories_list
 
 
 @app.route('/')
 def route_form():
-    return render_template('form.html')
+    return render_template('list.html')
 
 
 @app.route('/edit-note')
-def route_form_edit():
-    return render_template('list.html')
+def route_edit():
+    return render_template('form.html')
 
 
 @app.route('/save-note', methods=['POST'])
