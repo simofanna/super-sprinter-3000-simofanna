@@ -6,7 +6,34 @@
         <title>Super-Sprinter-3000</title>
     </head>
     <body>
-        <h1>Super-Sprinter-3000</h1>
+        <h1><strong>User Story Manager</strong></h1>
         <form action="/edit-note">
-            <button type="submit" style="height: 30px; width: 180px">New Story</button><br><br><br><br>
+            <button type="submit" style="height: 40px; width: 180px">Add New User Story</button><br><br><br><br>
         </form>
+        <table>
+            <tr>
+                <td><strong>ID</td>
+                <td><strong>Story Title</td>
+                <td><strong>User Story</td>
+                <td><strong>Acceptance Criteria</td>
+                <td><strong>Business Value</td>
+                <td><strong>Estimation</td>
+                <td><strong>Status</td>
+            </tr>
+            <tbody>    
+                {% for line in stories_list %}
+                {% if line[7] is not defined %}
+                    <tr>
+                        <td>{{line[0]}}</td>
+                        <td>{{line[1]}}</td>
+                        <td>{{line[2]}}</td>
+                        <td>{{line[3]}}</td>
+                        <td>{{line[4]}}</td>
+                        <td>{{line[5]}}</td>
+                        <td>{{line[6]}}</td>
+                    </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+    </body>
+</html>
