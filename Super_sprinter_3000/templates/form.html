@@ -6,42 +6,37 @@
     </head>
     <body>
         <h1>User story manager - Add new story</h1>
-        <form action="empty_form.php" method="post">
+        <form action="/save-note" method="GET">
                 
-                    <p>Story title:</p>
-                    <textarea name="story title" rows="1" cols="50"></textarea>
+                    <label for="story titles">Story Title</label><br>
+                    <textarea name="storytitles" rows="1" cols="50"></textarea><br><br>
                 
-                    <p>User story:</p>
-                    <textarea name="user story" rows="3" cols="50"></textarea>
+                    <label for="user story">User Story</label><br>
+                    <textarea name="userstory" rows="3" cols="50"></textarea><br><br>
 
-                    <p>Acceptance criteria:</p>
-                    <textarea name="acceptance criteria" rows="3" cols="50"></textarea>
+                    <label for="acceptance">Acceptance criteria</label><br>
+                    <textarea name="acceptance" rows="3" cols="50"></textarea><br>
 
-                    <div>
-                        <p><label for="businessValue">Business Value:<br></label></p>
-                        <input id="businessValue" type="number" name="value" step="100" min="100" max="1500" required>
-                        <span class="validity"></span>
-                    </div>
-
-                    <div>
-                        <p><label for="estimation">Estimation (h):<br></label></p>
-                        <input id="estimation" type="number" name="estimation" step="0.5" min="0.5" max="40" required>
-                        <span class="validity"></span>
-                    </div>
+                    <label for="Business Value">Business Value</label><br>
+                    <input name="business" type="number" value="1000" min="100" max="1500" step="100"/><br>
+              
+                    <label for="Estimation (h)">Estimation (h)</label><br>
+                    <input name="estimation" type="number" value="2.5" min="0.5" max="40" step="0.5"/><br>
         
-                    <p>Status:</p>
-                    <p><select>
-                            <option value="Planning">plannig</option>
-                            <option value="TODO">todo</option>
-                            <option value="In Progress">in progress</option>
-                            <option value="Rewiew">rewiew</option>
-                            <option value="Done">done</option>
-                    </select></p><br><br><br><br>
+                    <p>Status</p>
+                    <select name="status">
+                        <option value="Planning">Plannig</option>
+                        <option value="TODO">TODO</option>
+                        <option value="in Progress">in progress</option>
+                        <option value="Rewiew">Rewiew</option>
+                        <option value="Done">Done</option>
+                    </select>
+                    <br><br><br><br>
 
-                    <button onclick="window.location.href='/edit-note'">Create</button>
+                    <button type="submit" style="height: 30px; width: 120px">create</button>
 
         </form>
-        <form action="story_id.html" method="GET">
+        <form action="list.html" method="GET">
         </form>
     </body>
 </html>

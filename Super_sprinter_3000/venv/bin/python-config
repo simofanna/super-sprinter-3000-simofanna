@@ -1,4 +1,4 @@
-#!/home/fanna/codecool/WEB Module/Super_sprinter_3000/venv/bin/python
+#!/home/fanna/codecool/web_module/Super_sprinter_3000/venv/bin/python
 
 import sys
 import getopt

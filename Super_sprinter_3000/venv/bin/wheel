@@ -1,4 +1,4 @@
-#!"/home/fanna/codecool/WEB Module/Super_sprinter_3000/venv/bin/python2"
+#!/home/fanna/codecool/web_module/Super_sprinter_3000/venv/bin/python2
 
 # -*- coding: utf-8 -*-
 import re

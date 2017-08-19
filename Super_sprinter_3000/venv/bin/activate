@@ -40,7 +40,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/fanna/codecool/WEB Module/Super_sprinter_3000/venv"
+VIRTUAL_ENV="/home/fanna/codecool/web_module/Super_sprinter_3000/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
