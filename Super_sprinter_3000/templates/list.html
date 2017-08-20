@@ -7,33 +7,36 @@
     </head>
     <body>
         <h1><strong>User Story Manager</strong></h1>
-        <form action="/edit-note">
+        <form action="/new_story">
             <button type="submit" style="height: 40px; width: 180px">Add New User Story</button><br><br><br><br>
         </form>
         <table>
             <tr>
-                <td><strong>ID</td>
-                <td><strong>Story Title</td>
-                <td><strong>User Story</td>
-                <td><strong>Acceptance Criteria</td>
-                <td><strong>Business Value</td>
-                <td><strong>Estimation</td>
-                <td><strong>Status</td>
+                <th><strong>ID</th>
+                <th><strong>Story Title</th>
+                <th><strong>User Story</th>
+                <th><strong>Acceptance Criteria</th>
+                <th><strong>Business Value</th>
+                <th><strong>Estimation</th>
+                <th><strong>Status</th>
+                <th><strong>Update</th>
+                <th><strong>Delete</th>
             </tr>
-            <tbody>    
-                {% for line in stories_list %}
-                {% if line[7] is not defined %}
-                    <tr>
-                        <td>{{line[0]}}</td>
-                        <td>{{line[1]}}</td>
-                        <td>{{line[2]}}</td>
-                        <td>{{line[3]}}</td>
-                        <td>{{line[4]}}</td>
-                        <td>{{line[5]}}</td>
-                        <td>{{line[6]}}</td>
+            <tr>   
+                {% for id_pos in range(1, long+1) %}
+                
+                        <td>{{stories_list[id_pos-1][0]}}</td>
+                        <td>{{stories_list[id_pos-1][1]}}</td>
+                        <td>{{stories_list[id_pos-1][2]}}</td>
+                        <td>{{stories_list[id_pos-1][3]}}</td>
+                        <td>{{stories_list[id_pos-1][4]}}</td>
+                        <td>{{stories_list[id_pos-1][5]}}</td>
+                        <td>{{stories_list[id_pos-1][6]}}</td>
+                        <td><a href="/story/{{ id_pos }}">&#10000;</a></td>
+                        <td><a href="/delete/{{ id_pos }}">&#128465;</a></td>
                     </tr>
-                {% endif %}
                 {% endfor %}
-            </tbody>
+            </tr>
+        </table>
     </body>
 </html>

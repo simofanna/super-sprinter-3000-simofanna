@@ -1,42 +1,49 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Empty Form</title>
-    </head>
-    <body>
-        <h1>User story manager - Add new story</h1>
-        <form action="/save-note" method="GET">
-                
-                    <label for="story titles">Story Title</label><br>
-                    <textarea name="storytitles" rows="1" cols="50"></textarea><br><br>
-                
-                    <label for="user story">User Story</label><br>
-                    <textarea name="userstory" rows="3" cols="50"></textarea><br><br>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ "User Story manager - create" if not stories_list else " User manager - update" }}</title>
+</head>
+<body>
+    <center>
+    <h1>{{ "User Story manager - Create" if not stories_list else " Update" }} </h1>
 
-                    <label for="acceptance">Acceptance criteria</label><br>
-                    <textarea name="acceptance" rows="3" cols="50"></textarea><br>
+    {% if  not stories_list %}
+    <form action ="/save" method ="GET">
+    {% else %}
+    <form action ="/update/{{ id_pos }}" method ="GET">
+    {% endif %}
 
-                    <label for="Business Value">Business Value</label><br>
-                    <input name="business" type="number" value="1000" min="100" max="1500" step="100"/><br>
-              
-                    <label for="Estimation (h)">Estimation (h)</label><br>
-                    <input name="estimation" type="number" value="2.5" min="0.5" max="40" step="0.5"/><br>
-        
-                    <p>Status</p>
-                    <select name="status">
-                        <option value="Planning">Plannig</option>
-                        <option value="TODO">TODO</option>
-                        <option value="in Progress">in progress</option>
-                        <option value="Rewiew">Rewiew</option>
-                        <option value="Done">Done</option>
-                    </select>
-                    <br><br><br><br>
-
-                    <button type="submit" style="height: 30px; width: 120px">create</button>
-
-        </form>
-        <form action="list.html" method="GET">
-        </form>
-    </body>
+        <p><label for="title">Story Title</label> <br>
+        <input name = "title" rows="1" cols="60" value="{{ stories_list[1] if stories_list else '' }}"></p>
+        <br>
+         <p><label for="story">User Story</label> <br>
+        <input name = "story" rows="1" cols="60" value="{{ stories_list[2] if stories_list else '' }}"></p>
+        <br>
+        <p><label for="criteria">Acceptance Criteria</label> <br>
+        <input name = "criteria" rows="1" cols="60" value="{{ stories_list[3] if stories_list else '' }}"></p>
+        <br>
+        <p><label for="value">Buisness Value</label> <br>
+        <input name="value" type="number" min="100" max="1500" step="100" value="{{ stories_list[4] if stories_list else '1000' }}"></pr>
+        <br>
+        <p><label for="estim">Estimation time (h)</label> <br>
+        <input name="estim" type="number" min="0.5" max="40" step="0.5" value="{{ stories_list[5] if stories_list else '2.5'}}"></p>
+        <br>
+        <p><label for="status">Status</label> <br>
+        <select name ="status" >
+            <option {{ "selected" if stories_list and stories_list[6] == 'Planning' else '' }}>Planning</option>
+            <option {{ "selected" if stories_list and stories_list[6] == 'TODO' else '' }}>TODO</option>
+            <option {{ "selected" if stories_list and stories_list[6] == 'In Progress' else '' }}>In Progress</option>
+            <option {{ "selected" if stories_list and stories_list[6] == 'Review' else '' }}>Review</option>
+            <option {{ "selected" if stories_list and stories_list[6] == 'Done' else '' }}>Done</option>
+        </select><br>
+        <br>
+        <br>
+        <button type="submit">{{ "Update" if stories_list else "Create"}}</button>
+    
+    </form>
+    </center>
+</body>
 </html>
